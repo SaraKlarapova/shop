@@ -1,0 +1,23 @@
+.copyButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+        color: #333;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+}

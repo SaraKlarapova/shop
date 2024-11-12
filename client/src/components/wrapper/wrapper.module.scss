@@ -1,0 +1,15 @@
+.wrapper {
+    margin: 23px 48px;
+}
+
+.cotainer {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        margin: 10px;
+    }
+}

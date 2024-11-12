@@ -1,0 +1,39 @@
+.basis {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    textarea { 
+        resize: vertical; 
+    }
+}
+
+.error {
+    border: 1px solid var(--thunderBird) !important;
+}
+
+.TextAreaDark {
+    textarea {
+        min-height: 100px;
+        padding: 6px 12px;
+        background: rgb(21, 22, 33);
+        border: 1px solid rgb(49, 50, 72);
+        border-radius: 4px;
+        font-size: var(--fs-14);
+        color: rgb(238, 239, 252);
+        margin: 0px;
+        appearance: none;
+        transition: border var(--speed-regularTransition);
+
+        &:hover {
+            border-color: rgb(60, 61, 83);
+            transition-duration: var(--speed-highlightFadeIn);
+        }
+
+        &:focus {
+            box-shadow: none;
+            border-color: rgb(108, 121, 255);
+            outline: none;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.header {
+    padding: 50px 0 50px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 620px;
+}
+
+@media (max-width: 575px) {
+    .header {
+        gap: 12px;
+        padding: 16px 8px;
+
+        .description {
+            font-size: 16px;
+        }
+    }
+}

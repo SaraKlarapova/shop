@@ -1,0 +1,153 @@
+.base {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 40px;
+    gap: 5px;
+    transition: all var(--speed-regularTransition);
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+.loading {
+    opacity: 0.6;
+    cursor: default !important;
+}
+
+.disabled {
+    cursor: default !important;
+    opacity: 0.6 !important;
+
+    &:active {
+        transform: unset !important;
+    }
+}
+
+.buttonStandart {
+    background: #1B1B1B;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 40px;
+
+}
+
+.buttonGradient {
+    background: linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color-2) 100%);
+    color: white;
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+.buttonGradient:hover {
+    box-shadow: 2px 2px 20px 0px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+.buttonBlue {
+    background: rgba(var(--secondary-color-rgb), .2);
+    color: var(--secondary-color);
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+.buttonBlue:hover {
+    box-shadow: 2px 2px 20px 0px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+.buttonDownriver {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--secondary-color-2);
+    font-weight: bold;
+    background: #eeeeee;
+    font-size: var(--fs-15);
+}
+
+.active {
+    background: var(--secondary-color-2);
+    color: #eeeeee;
+}
+
+.buttonCopy {
+    font-size: 12px;
+    padding: 4px 10px;
+    line-height: 1em;
+    border: solid 1px #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.buttonViolet {
+    background: var(--secondary-color-2);
+    outline: 0;
+    font-weight: 800;
+    text-decoration: none;
+    padding: 6px 40px;
+    font-size: var(--fs-14);
+    border: none;
+    border-radius: 6px;
+    color: var(--white);
+}
+
+.buttonGray {
+    border-radius: 4px;
+    font-size: var(--fs-14);
+    transition-property: border, background-color, color, box-shadow, opacity;
+    transition-duration: var(--speed-regularTransition);
+    position: relative;
+    border: 1px solid rgb(57, 58, 75);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px;
+    background-color: rgb(41, 42, 53);
+    color: rgb(210, 211, 224);
+    min-width: 32px;
+    height: 32px;
+    padding: 0px 14px;
+    
+    &:hover {
+        background-color: rgb(44, 45, 66);
+        border-color: rgb(68, 69, 86);
+    }
+}
+.buttonGray.active {
+    border: 1px solid rgb(87, 91, 199);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px;
+    background-color: rgb(87, 91, 199);
+}
+.buttonIndigo {
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: var(--fs-14);
+    transition-property: border, background-color, color, box-shadow, opacity;
+    transition-duration: var(--speed-regularTransition);
+    border: 1px solid rgb(87, 91, 199);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px;
+    background-color: rgb(87, 91, 199);
+    color: rgb(255, 255, 255);
+    min-width: 32px;
+    height: 32px;
+    padding: 0px 14px;
+
+    &:hover {
+        background-color: rgb(102, 107, 226);
+    }
+}
+.ButtonCard {
+    text-transform: capitalize;
+    border: solid 1px rgba(0, 0, 0, .3);
+    font-weight: bold;
+    padding: 6px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: var(--fs-12);
+    cursor: pointer;
+    transition: all var(--speed-regularTransition);
+    &:hover {
+        background: var(--secondary-color-2);
+        border-color: rgba(255, 255, 255, 0);
+        color: var(--white);
+    }
+}

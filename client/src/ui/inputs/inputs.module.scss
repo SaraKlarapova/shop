@@ -1,0 +1,150 @@
+.basis {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.error {
+    border: 1px solid var(--thunderBird) !important;
+}
+
+.wrapperInput {
+    input {
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(225, 203, 203);
+        transition: all 0.1s ease;
+        padding-left: 10px;
+        font-size: var(--fs-15);
+    }
+
+    input:focus {
+        background: rgba(var(--secondary-color-rgb), .1);
+        box-shadow: 0px 0px 0px 4px rgba(var(--secondary-color-rgb), .3);
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        // border: none;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        // -webkit-box-shadow: 0 0 0px 1000px #485f84 inset;
+        transition: background-color 100000000000000000000000s ease-in-out 0s;
+    }
+
+}
+
+.InputTransparent {
+    input {
+        border-color: rgba(0, 0, 0, .2);
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: solid 1px #dddddd;
+        background: none;
+        border-radius: 6px;
+        height: auto;
+        box-shadow: none;
+        color: #333;
+        transition: all var(--speed-regularTransition);
+
+        &:focus {
+            box-shadow: 0px 0px 0px 4px rgba(var(--secondary-color-rgb), .3);
+            background: rgba(var(--secondary-color-rgb), .1);
+        }
+    }
+}
+
+.InputDark {
+    input {
+        height: 32px;
+        padding: 6px 12px;
+        background: rgb(21, 22, 33);
+        border: 1px solid rgb(49, 50, 72);
+        border-radius: 4px;
+        font-size: var(--fs-14);
+        color: rgb(238, 239, 252);
+        margin: 0px;
+        appearance: none;
+        transition: border var(--speed-regularTransition);
+
+        &:hover {
+            border-color: rgb(60, 61, 83);
+            transition-duration: var(--speed-highlightFadeIn);
+        }
+
+        &:focus {
+            box-shadow: none;
+            border-color: rgb(108, 121, 255);
+            outline: none;
+        }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        // border: none;
+        -webkit-text-fill-color: rgb(255, 255, 255);
+        // -webkit-box-shadow: 0 0 0px 1000px #485f84 inset;
+        transition: background-color 100000000000000000000000s ease-in-out 0s;
+    }
+}
+
+.InputLight {
+    label {
+        font-size: var(--fs-14);
+        font-weight: 500;
+    }
+
+    input {
+        height: 32px;
+        padding: 6px 12px;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(223, 225, 228);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: rgb(40, 42, 48);
+        margin: 0px;
+        appearance: none;
+        transition: border var(--speed-highlightFadeOut);
+
+
+        &:hover {
+            border-color: rgb(200, 202, 205);
+            transition-duration: 0s;
+        }
+
+        &:focus {
+            box-shadow: none;
+            border-color: rgb(33, 97, 220);
+        }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        // border: none;
+        -webkit-text-fill-color: rgb(40, 42, 48);
+        // -webkit-box-shadow: 0 0 0px 1000px #485f84 inset;
+        transition: background-color 100000000000000000000000s ease-in-out 0s;
+    }
+}

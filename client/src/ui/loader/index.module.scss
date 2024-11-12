@@ -1,0 +1,22 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading:after {
+    content: "";
+    border-radius: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-left-color: #FFF;
+    border-top-color: #FFF;
+    width: 14px;
+    height: 14px;
+    animation: spin .6s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(359deg);
+    }
+}

@@ -1,0 +1,29 @@
+* {
+    font-family: 'Inter' !important;
+}
+
+// body {
+//     background-color: white;
+// }
+
+.bg {
+    width: 100%;
+    // background: white;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1840px;
+}
+
+.images2Fa {
+    max-width: 250px;
+}
+
+.dataOf2FA {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}

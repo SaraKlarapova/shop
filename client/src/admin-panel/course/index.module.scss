@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}

@@ -1,0 +1,112 @@
+@import '@radix-ui/colors/blackA.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+/* reset */
+button {
+    all: unset;
+}
+
+.SelectTrigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 0 15px;
+    font-size: 13px;
+    line-height: 1;
+    height: 35px;
+    gap: 5px;
+    background: var(--light-white, #FFF);
+    color: rgb(60, 65, 73);
+    border: 1px solid var(--light-grays-light-gray, #dadada);
+}
+
+.SelectTrigger:hover {
+    background-color: var(--mauve3);
+}
+
+.SelectTrigger:focus {
+    box-shadow: 0 0 0 2px black;
+}
+
+.SelectTrigger[data-placeholder] {
+    color: var(--violet9);
+}
+
+.SelectIcon {
+    color: black;
+}
+
+.SelectContent {
+    overflow: hidden;
+    backdrop-filter: blur(12px) saturate(190%) contrast(50%) brightness(130%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    z-index: 999;
+    box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+}
+
+.SelectViewport {
+    padding: 5px;
+}
+
+.SelectItem {
+    font-size: 13px;
+    line-height: 1;
+    color: rgb(60, 65, 73);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    padding: 0 35px 0 25px;
+    position: relative;
+    user-select: none;
+}
+.imageSelectItem{
+    position: relative;
+    top: 5px;
+    left: -4px;
+}
+.SelectItem[data-disabled] {
+    color: var(--mauve8);
+    pointer-events: none;
+}
+
+.SelectItem[data-highlighted] {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: rgb(40, 42, 48);
+}
+
+.SelectLabel {
+    padding: 0 25px;
+    font-size: 12px;
+    line-height: 25px;
+    color: var(--mauve11);
+}
+
+.SelectSeparator {
+    height: 1px;
+    background-color: var(--violet6);
+    margin: 5px;
+}
+
+.SelectItemIndicator {
+    position: absolute;
+    left: 0;
+    width: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SelectScrollButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    background-color: white;
+    color: var(--violet11);
+    cursor: default;
+}

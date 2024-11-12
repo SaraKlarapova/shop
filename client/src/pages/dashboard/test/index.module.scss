@@ -1,0 +1,34 @@
+.question {}
+
+.wrapper {
+    max-width: 500px;
+
+    .items {
+        display: grid;
+        gap: 15px;
+
+
+    }
+}
+
+.answers {
+    display: grid;
+    margin-top: 5px;
+
+    gap: 4px;
+
+    .answer {
+        padding: 5px 10px;
+        border-radius: 7px;
+        border: 1px solid gray;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+
+    .isChosen {
+        background: gray;
+    }
+}

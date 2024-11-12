@@ -1,0 +1,169 @@
+.wrapper {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 575px) {
+        padding: 20px 0 0 0;
+    }
+
+    .upImg {
+        width: 100%;
+        height: 560px;
+        object-fit: cover;
+        border-radius: 24px;
+    }
+
+    .img1024 {
+        width: 100%;
+        border-radius: 24px;
+    }
+
+    .authorBlock {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .info {
+            border-radius: 0 20px 0 0;
+            background-color: #fff;
+            max-width: 960px;
+            width: 100%;
+            margin-top: -170px;
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 72px;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .testsWrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .tests {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .test {
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 1024px) {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding: 34px 12px;
+            }
+
+            .opacity {
+                opacity: .5;
+            }
+
+            .lh {
+                line-height: 32px;
+                font-weight: 400;
+                margin-top: 24px;
+                margin-bottom: 48px;
+
+                @media (max-width: 575px) {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            .headerTitle {
+                padding: 0;
+                max-width: 860px;
+            }
+
+            .moreTexts {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .david {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .share {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding: 32px;
+            width: 100%;
+            max-width: 376px;
+
+            .author {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding-bottom: 32px;
+                border-bottom: 1px solid rgba(64, 64, 64, 0.10);
+
+                .avatarName {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+
+                    img {
+                        border-radius: 1000px;
+                    }
+
+                    .authorText {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+
+            .social {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .row {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+        }
+    }
+}
+
+.hr {
+    border: 1px solid rgba(64, 64, 64, 0.10);
+}
+
+@media (max-width: 575px) {
+    :root {
+        --fs-8: 8px;
+        --fs-10: 10px;
+        --fs-12: 11px;
+        --fs-13: 11px;
+        --fs-14: 12px;
+        --fs-15: 12px;
+        --fs-16: 16px;
+        --fs-18: 14px;
+        --fs-20: 16px;
+        --fs-24: 24px;
+        --fs-25: 18px;
+        --fs-32: 18px;
+        --fs-38: 24px;
+        --fs-48: 30px;
+    }
+}

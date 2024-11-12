@@ -1,0 +1,87 @@
+.tableStyle {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 0.9em;
+    border-radius: 10px;
+    font-family: sans-serif;
+    overflow: hidden;
+
+    @media (max-width: 500px) {
+        font-size: 12px;
+    }
+}
+
+.tableStyle thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.tableStyle th,
+.tableStyle td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.tableStyle tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tableStyle tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+
+.tableStyle tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.wrapper {
+
+    ul,
+    ol {
+        all: revert;
+        padding: 0.4em 0;
+        padding-left: 40px;
+        overflow-wrap: break-word;
+
+        li,
+        ol {
+            padding: 5.5px 0 5.5px 3px;
+            line-height: 1.6em;
+            overflow-wrap: break-word;
+        }
+    }
+
+    h3,
+    h4,
+    h5,
+    h6,
+    h2,
+    h1 {
+        all: revert !important;
+        line-height: 1.25em;
+        overflow-wrap: break-word;
+
+        padding: 0.6em 0 3px;
+
+        @media (max-width: 500px) {
+            font-size: 12px;
+        }
+    }
+
+    h1 {
+        font-size: 32px;
+        overflow-wrap: break-word;
+    }
+
+    p {
+        all: revert;
+        line-height: 1.6em;
+        padding: 0.1em 0;
+        overflow-wrap: break-word;
+    }
+}

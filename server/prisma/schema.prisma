@@ -1,0 +1,104 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "darwin", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Users {
+    id                               Int               @id @default(autoincrement())
+    createdAt                        DateTime          @default(now())
+    email                            String            @unique
+    name                             String
+    role                             Roles             @default(USER)
+    isEmailActivated                 Boolean           @default(false)
+    password                         String
+    code_change_password             Int?
+    code_confirmation_email          String?
+    twoFactorAuthenticationSecret    String?
+    isTwoFactorAuthenticationEnabled Boolean?
+    Course                           Course[]
+    TestResults                      TestResults[]
+    MembersOfCourse                  MembersOfCourse[]
+}
+
+model Course {
+    id                 Int                  @id @default(autoincrement())
+    createdAt          DateTime             @default(now())
+    text               Json
+    video              String?
+    image              String
+    headline           String
+    textPreview        Json?
+    linkTelegram       String?
+    linkVk             String?
+    userId             Int
+    minutes            Int?
+    Users              Users                @relation(fields: [userId], references: [id])
+    CourseTestRelation CourseTestRelation[]
+    MembersOfCourse    MembersOfCourse[]
+}
+
+model CourseTestRelation {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    courseId  Int
+    testId    Int
+    Course    Course   @relation(fields: [courseId], references: [id])
+    Test      Test     @relation(fields: [testId], references: [id])
+}
+
+model MembersOfCourse {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    courseId  Int
+    userId    Int
+    Course    Course   @relation(fields: [courseId], references: [id])
+    Users     Users    @relation(fields: [userId], references: [id])
+}
+
+model Test {
+    id                       Int                  @id @default(autoincrement())
+    createdAt                DateTime             @default(now())
+    headline                 String
+    minimumQuestionsAnswered Int
+    Questions                Questions[]
+    TestResults              TestResults[]
+    CourseTestRelation       CourseTestRelation[]
+}
+
+model Questions {
+    id            Int             @id @default(autoincrement())
+    createdAt     DateTime        @default(now())
+    question      String
+    testId        Int
+    AnswerOptions AnswerOptions[]
+    Test          Test            @relation(fields: [testId], references: [id])
+}
+
+model AnswerOptions {
+    id         Int       @id @default(autoincrement())
+    createdAt  DateTime  @default(now())
+    asnwer     String
+    isCorrect  Boolean   @default(false)
+    questionId Int
+    Questions  Questions @relation(fields: [questionId], references: [id])
+}
+
+model TestResults {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    userId    Int
+    testId    Int
+    score     Int
+    Test      Test     @relation(fields: [testId], references: [id])
+    User      Users    @relation(fields: [userId], references: [id])
+}
+
+enum Roles {
+    USER
+    ADMIN
+}
