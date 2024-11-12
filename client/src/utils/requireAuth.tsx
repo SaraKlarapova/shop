@@ -6,7 +6,7 @@ export const RequireAuth = () => {
     const jwt = useJwtStore((state) => state.jwt);
 
     if (!jwt) {
-        return <Navigate to={'/panel/'} replace />
+        return <Navigate to={'/'} replace />
     }
 
     return <Outlet />;

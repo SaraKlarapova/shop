@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from './index.module.scss'
-import { PopUpVisibleCourse } from "admin-panel/course";
+import { PopUpVisibleCourse } from "admin/course";
 import { PopupComponent } from "components/popup";
 import { z } from "zod";
 import { Editor } from 'components/editor'
@@ -17,7 +17,7 @@ import { Button } from "ui/buttons";
 import { Fs14Fw400 } from "components/typography";
 import { Option } from "interfaces";
 import { Cross2Icon, PlusIcon } from "@radix-ui/react-icons";
-import { SelectWithSearch } from "admin-panel/components/modal-search";
+import { SelectWithSearch } from "admin/components/modal-search";
 import { mapToOptions } from "utils/mappings";
 
 interface Props {

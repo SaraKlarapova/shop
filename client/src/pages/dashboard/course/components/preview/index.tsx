@@ -25,7 +25,7 @@ export const PreviewCouse = ({ item }: Props) => {
     const createMember_ = useMutation({
         mutationFn: createMember,
         onSuccess: (data) => {
-            navigate(`/panel/course/${item?.course.id}/content`)
+            navigate(`/course/${item?.course.id}/content`)
         },
         onError: (error: any) => {
             console.log(error)

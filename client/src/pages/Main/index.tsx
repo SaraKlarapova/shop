@@ -13,7 +13,7 @@ export const Main = () => {
 
     useEffect(() => {
         if (jwt) {
-            navigate('/panel')
+            navigate('/')
         } else {
             navigate('/auth/sign-in')
         }
