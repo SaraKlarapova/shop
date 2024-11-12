@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import styles from './index.module.scss'
 import { ICourse } from "interfaces";
-import { PopUpVisibleCourse } from "admin-panel/course";
+import { PopUpVisibleCourse } from "admin/course";
 import { useQuery } from "react-query";
 import { getCountOfMembers } from "api";
 

@@ -8,6 +8,6 @@ import { Navigate } from 'react-router-dom'
 export const Main = () => {
 
     return (
-        <Navigate to={'/panel/all-courses'} replace />
+        <Navigate to={'/all-courses'} replace />
     )
 }

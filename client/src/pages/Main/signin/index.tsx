@@ -42,7 +42,7 @@ export const SignIn = () => {
             if (data.isTwoFactorAuthenticationEnabled) {
                 return navigate('/auth/two-factor')
             }
-            navigate('/panel')
+            navigate('/')
         },
         onError: (error: any) => {
             console.log(error)

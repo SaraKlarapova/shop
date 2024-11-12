@@ -6,6 +6,8 @@ import { ButtonIndigo } from "ui/buttons";
 import { downloadCertificate } from "api";
 import { useQuery } from "react-query";
 import { getCountOfMembers } from "api";
+import { useJwtStore } from "stores/jwt";
+import { toast } from "react-toastify";
 
 interface Props {
     item: ICourse
@@ -55,8 +57,14 @@ export const Card = ({ item, isPassed }: Props) => {
         }
     }, [data])
 
+    const jwt = useJwtStore((state) => state.role);
+
+    const handleClick = () => {
+        toast.error('You need to sign in')
+    }
+
     return (
-        <div className={styles.card} onClick={isPassed ? () => { } : () => navigate(`/panel/course/${item.id}`)}>
+        <div className={styles.card} onClick={jwt ? (isPassed ? () => { } : () => navigate(`/course/${item.id}`)) : handleClick}>
             {
                 isPassed ? <div className={styles.visibleBlock}>
                     <ButtonIndigo onClick={handleDownloadCertificate}>Получить сертификат</ButtonIndigo>

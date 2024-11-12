@@ -6,7 +6,7 @@ export const RequireRole = () => {
     const role = useJwtStore((state) => state.role);
 
     if (role === "USER" || !role) {
-        return <Navigate to={'/panel/'} replace />
+        return <Navigate to={'/'} replace />
     }
 
     return <Outlet />;
