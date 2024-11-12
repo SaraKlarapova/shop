@@ -12,6 +12,7 @@ import { Error } from 'ui/error';
 import { signIn } from 'api';
 import { toast } from 'react-toastify';
 import { InputLight } from 'ui/inputs/input';
+import { AuthForm } from 'components/auth-form';
 
 const validationSchema = z.object({
     email: z.string().email(),
@@ -46,7 +47,7 @@ export const SignIn = () => {
         onError: (error: any) => {
             console.log(error)
             setError(error.response?.data?.message);
-            toast.error('Неправильный пароль или почта')
+            toast.error('Неправильные пароль или почта')
         }
     })
 
@@ -67,26 +68,18 @@ export const SignIn = () => {
     });
 
     return (
-        <div className={styles.auth}>
-            <div className={styles.headline}>Авторизация</div>
-            <form className={styles.form}>
-                <div className={styles.inputs1fr}>
-                    <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'}></InputLight>
-                    <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'}></InputLight>
-                    <div className={styles.group}>
-                        <ButtonIndigo isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonIndigo>
-                        <div className={styles.flexSpaceBetween}>
-                            <p className={styles.link}>
-                                <Link to={`/auth/sign-up`}>
-                                    Регистрация
-                                </Link>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-
+        <AuthForm title='Login' subtitle='Welcome back! Please log in to access your account.'>
+            <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'}></InputLight>
+            <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'}></InputLight>
+            <ButtonIndigo isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonIndigo>
+            <div className={styles.flexSpaceBetween}>
+                <p className={styles.link}>
+                    <Link to={`/auth/sign-up`}>
+                        Регистрация
+                    </Link>
+                </p>
+            </div>
+        </AuthForm>
     );
 }
 
