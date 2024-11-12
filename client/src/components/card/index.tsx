@@ -64,7 +64,7 @@ export const Card = ({ item, isPassed }: Props) => {
     }
 
     return (
-        <div className={styles.card} onClick={jwt ? (isPassed ? () => { } : () => navigate(`/course/${item.id}`)) : handleClick}>
+        <div className={styles.card} onClick={jwt ? (isPassed ? () => { } : () => navigate(`/panel/course/${item.id}`)) : handleClick}>
             {
                 isPassed ? <div className={styles.visibleBlock}>
                     <ButtonIndigo onClick={handleDownloadCertificate}>Получить сертификат</ButtonIndigo>

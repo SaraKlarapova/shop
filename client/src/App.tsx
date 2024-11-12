@@ -32,10 +32,9 @@ function App() {
                     {/* <Route path={"/"} element={<Redirect />}></Route> */}
                     <Route path={"/auth/*"} element={<Main />}></Route>
                     <Route path='/' element={<AllCourses />}></Route>
-                    <Route path='/course/:id/*' element={<Course />}></Route>
                     <Route element={<RequireAuth />} >
                       <Route path={"/panel/*"} element={<Dashboard />}></Route> 
-                      </Route>
+                    </Route>
                     <Route element={<RequireRole />} >
                       <Route path='/admin-panel/*' element={<AdminPanel />}></Route>
                     </Route>
