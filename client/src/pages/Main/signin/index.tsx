@@ -68,9 +68,9 @@ export const SignIn = () => {
     });
 
     return (
-        <AuthForm title='Login' subtitle='Welcome back! Please log in to access your account.'>
-            <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'}></InputLight>
-            <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'}></InputLight>
+        <AuthForm title='Вход' subtitle='С возвращением! Войдите, чтобы войти'>
+            <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'} placeholder='example@example.com'></InputLight>
+            <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'} placeholder='Qwerty123'></InputLight>
             <ButtonIndigo isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonIndigo>
             <div className={styles.flexSpaceBetween}>
                 <p className={styles.link}>

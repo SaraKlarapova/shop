@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './index.module.scss'
-import { Fs12Fw400Black, Fs18Fw400Black } from "components/typography";
+import { Fs18Fw400, Fs48Fw600Black } from "components/typography";
 
 interface Props {
     title: string
@@ -10,12 +10,14 @@ interface Props {
 
 export const AuthForm = ({ title, subtitle, children }: Props) => {
     return(
-        <>
-            <Fs18Fw400Black.h1>{title}</Fs18Fw400Black.h1>
-            <Fs12Fw400Black.h2>{subtitle}</Fs12Fw400Black.h2>
-            <div className={styles.authForm}>
+        <div className={styles.authForm}>
+            <div className={styles.title}>
+                <Fs48Fw600Black.h1>{title}</Fs48Fw600Black.h1>
+                <Fs18Fw400.h2>{subtitle}</Fs18Fw400.h2>
+            </div>
+            <div className={styles.form}>
                 {children}
             </div>
-        </>
+        </div>
     )
 };

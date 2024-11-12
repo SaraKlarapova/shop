@@ -39,11 +39,13 @@ const Typography = (styleName: string) => {
 // export const H2Regular = Typography('H2Regular').h2;
 // export const Fs36 = Typography('fs36');
 
+export const Fs48Fw600 = Typography('Fs48Fw600');
+export const Fs48Fw600Black = Typography('Fs48Fw600Black');
+export const Fs18Fw400 = Typography('Fs18Fw400');
 export const Fs38Fw600Red = Typography('Fs38Fw600Red');
 export const Fs38Fw700Red = Typography('Fs38Fw700Red');
 export const Fs38Fw600White = Typography('Fs38Fw600White');
 export const Fs38Fw600Black = Typography('Fs38Fw600Black');
-export const Fs18Fw400 = Typography('Fs18Fw400');
 export const Fs18Fw400Black = Typography('Fs18Fw400Black');
 export const Fs18Fw400White = Typography('Fs18Fw400White');
 export const Fs18Fw500 = Typography('Fs18Fw500');
