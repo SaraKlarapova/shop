@@ -26,18 +26,13 @@ body {
     font-family: 'Inter';
     color: var(--grey15);
     background-color: var(--white97);
-    margin: 20px 30px 0px;
+    height: 100%;
+    justify-content: space-between;
 }
 
 a {
     color: inherit;
     text-decoration: none;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 :root {

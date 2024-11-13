@@ -15,6 +15,7 @@ import { Navbar } from "components/navbar";
 import styles from './index.module.scss'
 import { Course } from "pages/dashboard/course";
 import { Header } from "components/header";
+import { Footer } from "components/footer";
 
 function App() {
 
@@ -59,7 +60,7 @@ function App() {
           </Routes>
         }
       </div>
-      {/* {location.pathname.startsWith('/admin-panel') ? null : <Footer />} */}
+      {location.pathname.startsWith('/admin-panel') ? null : <Footer />}
     </>
   );
 }

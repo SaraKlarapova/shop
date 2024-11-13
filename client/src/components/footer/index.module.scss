@@ -1,0 +1,18 @@
+footer {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 5vh 2vw 2vh;
+
+    hr {
+        background: none;
+        width: 100%;
+        border: 1px solid var(--white97);
+    }
+
+    .copyright {
+        color: var(--grey40);
+    }
+}
