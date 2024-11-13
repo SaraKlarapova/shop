@@ -27,7 +27,8 @@ const withStyleToggle = (styleName: string) => {
         );
     }
 }
-export const Button = withStyle("buttonStandart");
+export const Button = withStyle("buttonStandard");
+
 export const ButtonGradient = withStyle("buttonGradient");
 export const ButtonBlue = withStyle("buttonBlue");
 export const ButtonDownriver = withStyleToggle("buttonDownriver");

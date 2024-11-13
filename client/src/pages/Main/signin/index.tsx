@@ -1,6 +1,6 @@
 import styles from '../index.module.scss'
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, ButtonIndigo } from 'ui/buttons';
+import { Button } from 'ui/buttons';
 import { password } from 'zodTypes';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -71,11 +71,19 @@ export const SignIn = () => {
         <AuthForm title='Вход' subtitle='С возвращением! Войдите, чтобы войти'>
             <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'} placeholder='example@example.com'></InputLight>
             <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'} placeholder='Qwerty123'></InputLight>
-            <ButtonIndigo isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonIndigo>
             <div className={styles.flexSpaceBetween}>
                 <p className={styles.link}>
                     <Link to={`/auth/sign-up`}>
-                        Регистрация
+                        Забыли пароль?
+                    </Link>
+                </p>
+            </div>
+            <Button isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</Button>
+            <div className={styles.flexSpaceBetween}>
+                <p className={styles.link}>
+                    Еще нет акаунта?&nbsp;
+                    <Link to={`/auth/sign-up`}>
+                        Зарегистрируйся ↗
                     </Link>
                 </p>
             </div>

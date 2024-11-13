@@ -10,7 +10,7 @@
     transition: all var(--speed-regularTransition);
 
     &:active {
-        transform: translateY(1px);
+        transform: translateY(2px);
     }
 }
 
@@ -28,12 +28,13 @@
     }
 }
 
-.buttonStandart {
-    background: #1B1B1B;
+.buttonStandard {
+    background: var(--orange50);
     color: white;
-    border-radius: 8px;
-    padding: 14px 40px;
-
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: var(--fs-14);
+    font-weight: 300;
 }
 
 .buttonGradient {

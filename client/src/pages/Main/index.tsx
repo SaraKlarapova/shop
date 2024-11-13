@@ -22,9 +22,6 @@ export const Main = () => {
     return (
         <>
             <main className={styles.wrapper}>
-                <div className={styles.leftBlock}>
-                    <div className={styles.logo}>SkillSync</div>
-                </div>
                 <div className={styles.rightBlock}>
                     <div className={styles.block}>
                         <div className={styles.auth}>

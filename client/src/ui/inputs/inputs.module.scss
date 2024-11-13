@@ -107,11 +107,12 @@
     label {
         font-size: var(--fs-16);
         font-weight: 500;
+        color: var(--grey15);
     }
 
     input {
         height: 27px;
-        padding: 24px;
+        padding: 24px 16px;
         background: var(--white99);
         border: 1px solid var(--white95);
         border-radius: 10px;
@@ -133,7 +134,6 @@
         }
 
         caret-color: var(--orange50);
-        caret-shape: block;
     }
 
     input:-webkit-autofill,
