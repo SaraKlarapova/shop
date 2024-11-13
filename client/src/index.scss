@@ -24,8 +24,9 @@ input {
 
 body {
     font-family: 'Inter';
-    color: var(--dark);
-    background-color: var(--white97) ;
+    color: var(--grey15);
+    background-color: var(--white97);
+    margin: 20px 30px 0px;
 }
 
 a {
@@ -33,10 +34,16 @@ a {
     text-decoration: none;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 :root {
 
-    --fs-18: 14px;
-    --fs-48: 42px;
+    --fs-18: 1.7vh;
+    --fs-48: 5vh;
 
     --fs-8: 8px;
     --fs-10: 10px;
@@ -59,8 +66,6 @@ a {
     --fs-25: 25px;
     --fs-28: 28px;
     --fs-32: 32px;
-    --fs-38: 42px;
-    --fs-48: 48px;
 }
 
 :root {

@@ -105,7 +105,7 @@
 
 .InputLight {
     label {
-        font-size: var(--fs-16);
+        font-size: var(--fs-18);
         font-weight: 500;
         color: var(--grey15);
     }
@@ -116,7 +116,8 @@
         background: var(--white99);
         border: 1px solid var(--white95);
         border-radius: 10px;
-        font-size: var(--fs-14);
+        font-size: var(--fs-18);
+        font-weight: 300;
         color: var(--grey40);
         margin: 4px 0px;
         appearance: none;

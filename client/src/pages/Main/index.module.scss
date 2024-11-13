@@ -1,44 +1,8 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-}
-
-.logo {
-    font-size: var(--fs-25);
-    font-weight: 600;
-    color: var(--white);
-
-}
-
-.leftBlock {
-    position: relative;
-    padding: 40px;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.rightBlock {
-    padding-top: 40px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
-}
-
-.block {
-    width: 100%;
-    max-width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-left: 200px;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
@@ -49,18 +13,11 @@
 
 }
 
-.item {
-    font-size: var(--fs-13);
-    color: var(--lightGray);
-}
-
 .auth {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    gap: 8px;
     width: 100%;
     max-width: 400px;
 }

@@ -1,6 +1,6 @@
 # About
 
-The web application for study with online ciurses.
+The web application for study with online courses.
 
 # Design
 

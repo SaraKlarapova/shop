@@ -14,6 +14,7 @@ import { AllCourses } from "pages/dashboard/all-courses";
 import { Navbar } from "components/navbar";
 import styles from './index.module.scss'
 import { Course } from "pages/dashboard/course";
+import { Header } from "components/header";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <AxiosJWT />
       <ToastContainer />
       <div className={styles.wrapper}>
+        <Header />
         {!pathnames ? 
           <Navbar>
             <Routes>

@@ -1,0 +1,42 @@
+.header {
+    max-width: 1860px;
+    width: 100%;
+    border-bottom: 1px solid var(--white95);
+    padding: 2vh 2vw;
+    user-select: none;
+    justify-content: space-between;
+
+    &, & * {
+        display: flex;
+        flex-direction: row;
+        align-items: center;        
+    }
+
+    .navigate {
+        gap: 50px;
+
+        .links {
+            gap: 26px;
+
+            & > * {
+                :hover {
+                    color: var(--orange50);
+                }
+            }
+        }
+    }
+
+    .profile {
+        gap: 12px;
+        cursor: pointer;
+
+        img {
+            border-radius: 100%;
+        }
+
+        .name {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+}

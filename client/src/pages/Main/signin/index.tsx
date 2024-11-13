@@ -1,6 +1,6 @@
 import styles from '../index.module.scss'
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from 'ui/buttons';
+import { ButtonPrimary } from 'ui/buttons';
 import { password } from 'zodTypes';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -78,7 +78,7 @@ export const SignIn = () => {
                     </Link>
                 </p>
             </div>
-            <Button isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</Button>
+            <ButtonPrimary isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonPrimary>
             <div className={styles.flexSpaceBetween}>
                 <p className={styles.link}>
                     Еще нет акаунта?&nbsp;

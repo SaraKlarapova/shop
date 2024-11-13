@@ -28,13 +28,24 @@
     }
 }
 
-.buttonStandard {
+.buttonPrimary {
     background: var(--orange50);
-    color: white;
+    color: var(--white);
     border-radius: 10px;
     padding: 18px 20px;
-    font-size: var(--fs-14);
-    font-weight: 300;
+    font-size: var(--fs-18);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.buttonSecondary {
+    color: var(--grey15);
+    padding: 18px 20px;
+    font-size: var(--fs-18);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 }
 
 .buttonGradient {
