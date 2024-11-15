@@ -12,19 +12,19 @@ import ScrollToTop from 'utils/scrollToTop'
 import vk from 'assets/icons/vk.svg'
 import telegram from 'assets/icons/telegram.svg'
 import { Button } from 'ui/buttons'
-import { getCourseById } from 'api'
 import { PreviewCouse } from './components/preview'
 import { ContentCourse } from './components/content'
+import { useJwtStore } from 'stores/jwt'
 
 export const Course = () => {
 
-    const { id } = useParams();
+    const jwt = useJwtStore(state => state.role)
 
-    const { data, isLoading } = useQuery({
-        queryFn: () => getCourseById(Number(id)),
-        queryKey: ['client-get-course', id],
-        keepPreviousData: true
-    })
+    // const { data, isLoading } = useQuery({
+    //     queryFn: () => getCourseById(Number(id)),
+    //     queryKey: ['client-get-course', id],
+    //     keepPreviousData: true
+    // })
     // const shareText = `Посмотрите эту новость на Shell: ${dataNews?.title}`;
     // const shareUrl = `https://shell.in.ua/shell-inside/inside-page/${id}`;
     // const shareImage = dataNews?.preview || '';
@@ -34,8 +34,8 @@ export const Course = () => {
         <>
             <ScrollToTop />
             <Routes>
-                <Route path='/' element={<PreviewCouse item={data} />}></Route>
-                <Route path='/content' element={<ContentCourse item={data} />}></Route>
+                <Route path='/' element={<PreviewCouse />}></Route>
+                {jwt && <Route path='/content' element={<ContentCourse />}></Route>}
             </Routes>
         </>
 

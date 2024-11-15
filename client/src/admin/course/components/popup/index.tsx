@@ -32,6 +32,7 @@ const validationSchema = z.object({
     video: z.string().optional().nullable(),
     headline: z.string().min(1),
     minutes: z.number().optional().nullable(),
+    price: z.number().optional().nullable(),
     linkTelegram: z.string().optional().nullable(),
     linkVk: z.string().optional().nullable(),
 })
@@ -137,6 +138,7 @@ export const PopUpCourse = ({ isVisible, setIsVisible }: Props) => {
         <PopupComponent headline="Добавление курса" isVisible={isVisible.visibility} setIsVisible={handleVisibilityPopUp}>
             <div className={styles.wrapper}>
                 <InputLight type="text" name="headline" error={errors.headline} register={register} label="Название" />
+                <InputLight type="number" name="price" error={errors.price} register={register} label="Цена" />
                 <InputLight type="number" name="minutes" error={errors.minutes} register={register} label="Время прохождения" />
                 <InputLight type="text" name="linkTelegram" error={errors.linkTelegram} register={register} label="Ссылка на telegram" />
                 <InputLight type="text" name="linkVk" error={errors.linkVk} register={register} label="Ссылка на vk" />

@@ -35,6 +35,7 @@ function App() {
               {/* <Route path={"/"} element={<Redirect />}></Route> */}
               <Route path={"/auth/*"} element={<Main />} />
               <Route path='/' element={<AllCourses />} />
+              <Route path='/course/:id/*' element={<Course />}></Route>
               <Route element={<RequireAuth />}>
                 <Route path={"/panel/*"} element={<Dashboard />} /> 
               </Route>

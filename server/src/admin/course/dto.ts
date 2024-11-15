@@ -30,6 +30,9 @@ export class Upsert {
     @IsOptional()
     image: string
 
+    @IsOptional()
+    price: string
+
     @IsNotEmpty()
     headline: string
 

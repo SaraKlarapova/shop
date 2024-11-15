@@ -62,6 +62,7 @@ export const CardAdmin = ({ item, isVisible, setIsVisible }: Props) => {
                     {item.minutes > 0 && <span className={styles.gray}>{item.minutes} {time}</span>}
                 </div>
                 <h2 className={styles.title}>{item.headline}</h2>
+                <span>Цена: <span className={styles.price}>{item.price}$</span></span>
                 <span className={styles.author}>{item.Users.name}</span>
             </div>
         </div>

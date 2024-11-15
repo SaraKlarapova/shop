@@ -10,41 +10,50 @@ import vk from 'assets/icons/vk.svg'
 import telegram from 'assets/icons/telegram.svg'
 import { Button } from 'ui/buttons'
 import { IGetCourseById } from 'interfaces'
-import { useNavigate } from 'react-router-dom'
-import { createMember } from 'api'
-import { useMutation } from 'react-query'
+import { useNavigate, useParams } from 'react-router-dom'
+import { createMember, getPreviewCourse } from 'api'
+import { useMutation, useQuery } from 'react-query'
+import { toast } from 'react-toastify'
 
-interface Props {
-    item?: IGetCourseById
-}
+export const PreviewCouse = () => {
 
-export const PreviewCouse = ({ item }: Props) => {
+    const { id } = useParams()
+
+    const { data, isLoading } = useQuery({
+        queryFn: () => getPreviewCourse(Number(id)),
+        queryKey: ['get-preview-course', Number(id)],
+        keepPreviousData: true
+    })
 
     const navigate = useNavigate()
 
     const createMember_ = useMutation({
         mutationFn: createMember,
-        onSuccess: (data) => {
-            navigate(`/course/${item?.course.id}/content`)
+        onSuccess: () => {
+            navigate(`/course/${data?.course.id}/content`, {
+                state: {
+                    id: Number(id)
+                }
+            })
         },
         onError: (error: any) => {
-            console.log(error)
+            toast.error('You need to sign in')
         }
     })
 
     const onSubmit = () => {
-        if (!item) return
-        createMember_.mutate({ id: item?.course.id })
+        if (!data) return
+        createMember_.mutate({ id: Number(id) })
     };
 
 
     return (
         <Wrapper className={styles.wrapper}>
-                <img src={item?.course.image} alt="up" className={styles.upImg} />
+                <img src={data?.course.image} alt="up" className={styles.upImg} />
                 <div className={styles.authorBlock}>
                     <div className={styles.info}>
-                        {item && <HeaderPage className={styles.headerTitle} title={item?.course.headline} />}
-                        <EditorRenderer data={item?.course.textPreview} />
+                        {data && <HeaderPage className={styles.headerTitle} title={data?.course.headline} />}
+                        <EditorRenderer data={data?.course.textPreview} />
                     </div>
                     <div className={styles.share}>
                         <div className={styles.author}>
@@ -52,18 +61,18 @@ export const PreviewCouse = ({ item }: Props) => {
                             <div className={styles.avatarName}>
                                 {/* <img src={avatar} alt="avatar" /> */}
                                 <div className={styles.authorText}>
-                                    <Fs18Fw400.span>{item?.course.Users.name}</Fs18Fw400.span>
-                                    <Fs12Fw400.span className={styles.opacity}>{item && getNormalDate(item?.course.createdAt)}</Fs12Fw400.span>
+                                    <Fs18Fw400.span>{data?.course.Users.name}</Fs18Fw400.span>
+                                    <Fs12Fw400.span className={styles.opacity}>{data && getNormalDate(data?.course.createdAt)}</Fs12Fw400.span>
                                 </div>
                             </div>
                         </div>
-                        <Button isLoading={createMember_.isLoading} onClick={onSubmit}>{item?.foundMember ? 'Продолжить курс' : 'Начать курс'}</Button>
+                        <Button isLoading={createMember_.isLoading} onClick={onSubmit}>{data?.foundMember ? 'Продолжить курс' : 'Начать курс'}</Button>
                         <div className={styles.social}>
                             <div className={styles.row}>
-                                {item?.course.linkVk && item.course.linkVk !== 'null' && <SocialItem link={item.course.linkVk}>
+                                {data?.course.linkVk && data.course.linkVk !== 'null' && <SocialItem link={data.course.linkVk}>
                                     <img src={vk} alt="" />
                                 </SocialItem>}
-                                {item?.course.linkTelegram && item.course.linkTelegram !== 'null' && <SocialItem link={item.course.linkTelegram}>
+                                {data?.course.linkTelegram && data.course.linkTelegram !== 'null' && <SocialItem link={data.course.linkTelegram}>
                                     <img src={telegram} alt="" />
                                 </SocialItem>}
                             </div>

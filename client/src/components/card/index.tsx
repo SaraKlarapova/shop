@@ -59,14 +59,10 @@ export const Card = ({ item, isPassed }: Props) => {
 
     const jwt = useJwtStore((state) => state.role);
 
-    const handleClick = () => {
-        toast.error('You need to sign in')
-    }
-
     return (
-        <div className={styles.card} onClick={jwt ? (isPassed ? () => { } : () => navigate(`/panel/course/${item.id}`)) : handleClick}>
+        <div className={styles.card} onClick={isPassed ? () => { } : () => navigate(`/course/${item.id}`)}>
             {
-                isPassed ? <div className={styles.visibleBlock}>
+                isPassed && jwt ? <div className={styles.visibleBlock}>
                     <ButtonIndigo onClick={handleDownloadCertificate}>Получить сертификат</ButtonIndigo>
                 </div> : <></>
             }
@@ -78,6 +74,7 @@ export const Card = ({ item, isPassed }: Props) => {
                     {item.minutes > 0 && <span className={styles.gray}>{item.minutes} {time}</span>}
                 </div>
                 <h2 className={styles.title}>{item.headline}</h2>
+                <span>Цена: <span className={styles.price}>{item.price}$</span></span>
                 <span className={styles.author}>{item.Users.name}</span>
             </div>
         </div>

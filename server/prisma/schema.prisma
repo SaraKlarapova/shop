@@ -37,6 +37,7 @@ model Course {
     linkVk             String?
     userId             Int
     minutes            Int?
+    price              Float?
     Users              Users                @relation(fields: [userId], references: [id])
     CourseTestRelation CourseTestRelation[]
     MembersOfCourse    MembersOfCourse[]

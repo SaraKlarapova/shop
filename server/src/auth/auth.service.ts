@@ -77,4 +77,8 @@ export class AuthService {
     async confirmEmail(user, code) {
         return await this.usersService.checkCodeConfirmation(user.email, code);
     }
+
+    async verifyToken(token: string) {
+        return await this.jwtService.verifyAsync(token);
+    }
 }

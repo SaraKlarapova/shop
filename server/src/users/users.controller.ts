@@ -268,4 +268,18 @@ export class UsersController {
         return cleanSignature;
     }
 
+    @UseGuards(Jwt2faAuthGuard)
+    @Get('get-username')
+    async getUsername(@Req() req) {
+        const id = req.user.id
+
+        return await this.prisma.users.findUnique({
+            where: {
+                id
+            },
+            select: {
+                name: true
+            }
+        })
+    }
 }

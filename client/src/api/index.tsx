@@ -87,12 +87,22 @@ export const getCourse = async (): Promise<ICourse[]> => {
     return response.data;
 }
 
-export const getCourseById = async (id: number): Promise<IGetCourseById> => {
-    let response = await api.get(`course/get-by-id?id=${id}`);
+export const getPreviewCourse = async (id: number): Promise<IGetCourseById> => {
+    let response = await api.get(`course/get-preview-course?id=${id}`);
+    return response.data;
+}
+
+export const getFullCourse = async (id: number): Promise<IGetCourseById> => {
+    let response = await api.get(`course/get-full-course?id=${id}`);
     return response.data;
 }
 
 export const getCountOfMembers = async (id: number): Promise<number> => {
     let response = await api.get(`course/get-count-of-members?id=${id}`);
+    return response.data;
+}
+
+export const getUsername = async (): Promise<{ name: string }> => {
+    let response = await api.get(`users/get-username`);
     return response.data;
 }

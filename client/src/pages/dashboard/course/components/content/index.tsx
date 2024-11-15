@@ -10,31 +10,36 @@ import vk from 'assets/icons/vk.svg'
 import telegram from 'assets/icons/telegram.svg'
 import { Button } from 'ui/buttons'
 import { IGetCourseById } from 'interfaces'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { getFullCourse } from 'api'
+import { useQuery } from 'react-query'
 
-interface Props {
-    item?: IGetCourseById
-}
+export const ContentCourse = () => {
 
-export const ContentCourse = ({ item }: Props) => {
-
-    const navigate = useNavigate()
+    const location = useLocation()
+    const id = location.state?.id
+    
+    const { data, isLoading } = useQuery({
+        queryFn: () => getFullCourse(Number(id)),
+        queryKey: ['get-full-course', Number(id)],
+        keepPreviousData: true
+    })
 
     return (
         <Wrapper className={styles.wrapper}>
-            <img src={item?.course.image} alt="up" className={styles.upImg} />
+            <img src={data?.course.image} alt="up" className={styles.upImg} />
             <div className={styles.authorBlock}>
                 <div className={styles.info}>
-                    {item && <HeaderPage className={styles.headerTitle} title={item?.course.headline} />}
+                    {data && <HeaderPage className={styles.headerTitle} title={data?.course.headline} />}
                     <div className={styles.content}>
-                        {item && item.course.video !== 'null' && item.course.video !== null && <video width={'100%'} controls>
-                            <source src={item.course.video} type='video/mp4' />
+                        {data && data.course.video !== 'null' && data.course.video !== null && <video width={'100%'} controls>
+                            <source src={data.course.video} type='video/mp4' />
                         </video>}
-                        <EditorRenderer data={item?.course.text} />
+                        <EditorRenderer data={data?.course.text} />
                         <div className={styles.testsWrapper}>
                             <Fs20Fw500Black.h3>Тесты, которые нужно пройти для получения сертификата:</Fs20Fw500Black.h3>
                             <div className={styles.tests}>
-                                {item?.course.CourseTestRelation.map(el => (
+                                {data?.course.CourseTestRelation.map(el => (
                                     <Link className={styles.test} to={`/test/${el.testId}`}>
                                         <Fs16Fw400Black.span>{el.Test.headline}</Fs16Fw400Black.span>
                                     </Link>
@@ -49,18 +54,18 @@ export const ContentCourse = ({ item }: Props) => {
                         <div className={styles.avatarName}>
                             {/* <img src={avatar} alt="avatar" /> */}
                             <div className={styles.authorText}>
-                                <Fs18Fw400.span>{item?.course.Users.name}</Fs18Fw400.span>
-                                <Fs12Fw400.span className={styles.opacity}>{item && getNormalDate(item?.course.createdAt)}</Fs12Fw400.span>
+                                <Fs18Fw400.span>{data?.course.Users.name}</Fs18Fw400.span>
+                                <Fs12Fw400.span className={styles.opacity}>{data && getNormalDate(data?.course.createdAt)}</Fs12Fw400.span>
                             </div>
                         </div>
                     </div>
                     {/* <Button onClick={() => navigate(`/panel/course/${item?.id}/content`)}>Начать тест</Button> */}
                     <div className={styles.social}>
                         <div className={styles.row}>
-                            {item?.course.linkVk && item.course.linkVk !== 'null' && <SocialItem link={item.course.linkVk}>
+                            {data?.course.linkVk && data.course.linkVk !== 'null' && <SocialItem link={data.course.linkVk}>
                                 <img src={vk} alt="" />
                             </SocialItem>}
-                            {item?.course.linkTelegram && item.course.linkTelegram !== 'null' && <SocialItem link={item.course.linkTelegram}>
+                            {data?.course.linkTelegram && data.course.linkTelegram !== 'null' && <SocialItem link={data.course.linkTelegram}>
                                 <img src={telegram} alt="" />
                             </SocialItem>}
                         </div>

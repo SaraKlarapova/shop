@@ -33,7 +33,12 @@
         }
 
         .title {
-            font-size: var(--fs-23);
+            font-size: var(--fs-24);
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: var(--fs-18);
             font-weight: 600;
         }
 

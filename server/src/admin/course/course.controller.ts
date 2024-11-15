@@ -5,12 +5,14 @@ import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { S3Service } from 's3/s3.service';
 import { Jwt2faAuthGuard } from 'auth/jwt-2fa-auth.guard';
 import { convertToStandardObject } from 'utils';
+import { AuthService } from 'auth/auth.service';
 
 @Controller('course')
 export class CourseController {
     constructor(
         private prisma: PrismaService,
         private s3: S3Service,
+        private authService: AuthService
     ) { }
 
     @UseGuards(Jwt2faAuthGuard)
@@ -20,7 +22,7 @@ export class CourseController {
     ]))
     @Post('/create')
     async create(
-        @Body() { text, textPreview, video, image, headline, id, linkVk, linkTelegram, minutes, relatedTests }: Upsert,
+        @Body() { text, textPreview, video, image, headline, id, linkVk, linkTelegram, minutes, relatedTests, price }: Upsert,
         @UploadedFiles() files: { fileImage?: Express.Multer.File[], fileVideo?: Express.Multer.File[] },
         @Req() req
     ) {
@@ -59,6 +61,7 @@ export class CourseController {
                 userId,
                 linkVk,
                 linkTelegram,
+                price: Number(price),
                 minutes: Number(minutes) || 0,
             },
             update: {
@@ -70,6 +73,7 @@ export class CourseController {
                 userId,
                 linkVk,
                 linkTelegram,
+                price: Number(price),
                 minutes: Number(minutes) || 0
             }
         })
@@ -124,9 +128,56 @@ export class CourseController {
         })
     }
 
+    @Get('/get-preview-course')
+    async getPreviewCourse(@Query('id') id: string | number, @Req() req) {
+        const [bearer, token] = req.headers.authorization.split(' ');
+        let decoded;
+        let foundMember;
+
+        const course = await this.prisma.course.findUnique({
+            where: {
+                id: Number(id)
+            },
+            select: {
+                Users: {
+                    select: {
+                        name: true
+                    }
+                },
+                image: true,
+                textPreview: true,
+                linkTelegram: true,
+                linkVk: true,
+                headline: true,
+                createdAt: true
+            }
+        })
+
+        try {
+            decoded = await this.authService.verifyToken(token)
+            
+            foundMember = await this.prisma.membersOfCourse.findFirst({
+                where: {
+                    userId: decoded.id,
+                    courseId: Number(id)
+                }
+            })
+
+            
+        }
+        catch (err) {
+            foundMember = undefined
+        }
+
+        return {
+            course,
+            foundMember
+        }
+    }
+
     @UseGuards(Jwt2faAuthGuard)
-    @Get('/get-by-id')
-    async getById(@Query('id') id: string | number, @Req() req) {
+    @Get('/get-full-course')
+    async getFullCourse(@Query('id') id: string | number, @Req() req) {
         const userId = req.user.id
 
         const course = await this.prisma.course.findUnique({
@@ -134,7 +185,11 @@ export class CourseController {
                 id: Number(id)
             },
             include: {
-                Users: true,
+                Users: {
+                    select: {
+                        name: true
+                    }
+                },
                 CourseTestRelation: {
                     include: {
                         Test: true

@@ -12,7 +12,6 @@ import { RequireAuth } from 'utils/requireAuth'
 export const Dashboard = () => {
     return (
         <Routes>
-            <Route path='/course/:id/*' element={<Course />}></Route>
             <Route path='/test/:id' element={<Test />}></Route>
             <Route path='/passed-courses' element={<PassedCourses />}></Route>
             <Route path='/verify-certificate' element={<VerifyCertficate />}></Route>

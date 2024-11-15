@@ -100,6 +100,7 @@ export interface ICourse {
     linkTelegram: string
     numberOfUsers: number
     minutes: number
+    price: number
     CourseTestRelation: CourseTestRelation[]
     Users: IUsers
 }
