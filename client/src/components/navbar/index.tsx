@@ -24,10 +24,19 @@ interface NAVSections {
 }
 const navigation: NAVSections[] = [
     {
-        title: 'Materials',
+        title: 'Информация',
         icon: faHouse,
         navigation: [
-            { title: 'Курсы', link: '/' },
+            { title: 'Главная', link: '/' },
+            { title: 'Контакты', link: '/contacts' },
+            { title: 'Об организации', link: '/about' },
+        ]
+    },
+    {
+        title: 'Материалы',
+        icon: faHouse,
+        navigation: [
+            { title: 'Курсы', link: '/courses' },
         ]
     },
 ];
@@ -64,7 +73,7 @@ export const Navbar = ({ children }: Props) => {
                         {/* <img src={Logo} /> */}
                         <img src={BlinkSwap} />
                         <div className={styles.description}>
-                            <div className={styles.headline}>Site shop</div>
+                            <div className={styles.headline}>Skillsync</div>
                         </div>
                     </div>
                 </header>
@@ -110,7 +119,7 @@ export const Navbar = ({ children }: Props) => {
                     {!jwt && 
                         <Link to="/auth" className={styles.exit} onClick={() => navigate('/auth')}>
                             <img src={DoorExit} />
-                            <span className={styles.text}>Sign in</span>
+                            <span className={styles.text}>Войти</span>
                         </Link>
                     }
                 </div>
