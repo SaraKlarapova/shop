@@ -1,6 +1,6 @@
 import styles from '../index.module.scss'
 import { Link, useNavigate } from 'react-router-dom';
-import { ButtonPrimary } from 'ui/buttons';
+import { Button, ButtonIndigo } from 'ui/buttons';
 import { password } from 'zodTypes';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,7 +12,6 @@ import { Error } from 'ui/error';
 import { signIn } from 'api';
 import { toast } from 'react-toastify';
 import { InputLight } from 'ui/inputs/input';
-import { AuthForm } from 'components/auth-form';
 
 const validationSchema = z.object({
     email: z.string().email(),
@@ -42,12 +41,12 @@ export const SignIn = () => {
             if (data.isTwoFactorAuthenticationEnabled) {
                 return navigate('/auth/two-factor')
             }
-            navigate('/')
+            navigate('/panel')
         },
         onError: (error: any) => {
             console.log(error)
             setError(error.response?.data?.message);
-            toast.error('Неправильные пароль или почта')
+            toast.error('Неправильный пароль или почта')
         }
     })
 
@@ -68,26 +67,26 @@ export const SignIn = () => {
     });
 
     return (
-        <AuthForm title='Вход' subtitle='С возвращением! Войдите, чтобы войти'>
-            <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'} placeholder='example@example.com'></InputLight>
-            <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'} placeholder='Qwerty123'></InputLight>
-            <div className={styles.flexSpaceBetween}>
-                <p className={styles.link}>
-                    <Link to={`/auth/sign-up`}>
-                        Забыли пароль?
-                    </Link>
-                </p>
-            </div>
-            <ButtonPrimary isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonPrimary>
-            <div className={styles.flexSpaceBetween}>
-                <p className={styles.link}>
-                    Еще нет акаунта?&nbsp;
-                    <Link to={`/auth/sign-up`}>
-                        Зарегистрируйся ↗
-                    </Link>
-                </p>
-            </div>
-        </AuthForm>
+        <div className={styles.auth}>
+            <div className={styles.headline}>Авторизация</div>
+            <form className={styles.form}>
+                <div className={styles.inputs1fr}>
+                    <InputLight className={styles.input} label='Почта' type='text' register={register} name={'email'} error={errors.email} autoComplete={'email'}></InputLight>
+                    <InputLight className={styles.input} label='Пароль' type="password" register={register} name={'password'} error={errors.password} autoComplete={'new-password'}></InputLight>
+                    <div className={styles.group}>
+                        <ButtonIndigo isLoading={isLoading} onClick={handleSubmit(onSubmit)}>Войти</ButtonIndigo>
+                        <div className={styles.flexSpaceBetween}>
+                            <p className={styles.link}>
+                                <Link to={`/auth/sign-up`}>
+                                    Регистрация
+                                </Link>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     );
 }
 

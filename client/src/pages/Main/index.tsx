@@ -1,4 +1,4 @@
-import { ButtonPrimary } from "ui/buttons";
+import { Button } from "ui/buttons";
 import styles from './index.module.scss'
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp } from "./signup";
@@ -13,7 +13,7 @@ export const Main = () => {
 
     useEffect(() => {
         if (jwt) {
-            navigate('/')
+            navigate('/panel')
         } else {
             navigate('/auth/sign-in')
         }
@@ -22,11 +22,31 @@ export const Main = () => {
     return (
         <>
             <main className={styles.wrapper}>
-                <div className={styles.auth}>
-                    <Routes>
-                        <Route path={"/sign-in"} element={<SignIn />}></Route>
-                        <Route path={"/sign-up"} element={<SignUp />}></Route>
-                    </Routes>
+                <div className={styles.leftBlock}>
+                    <div className={styles.logo}>SkillSync</div>
+                </div>
+                <div className={styles.rightBlock}>
+                    <div className={styles.block}>
+                        <div className={styles.auth}>
+                            <Routes>
+                                <Route path={"/sign-in"} element={<SignIn />}></Route>
+                                <Route path={"/sign-up"} element={<SignUp />}></Route>
+                            </Routes>
+                        </div>
+
+                        <div className={styles.footer}>
+                            <div className={styles.item}>
+                                Privacy Policy
+                            </div>
+                            <div className={styles.item}>
+                                Terms
+                            </div>
+                            <div className={styles.item}>
+                                © 2024 Bauer CRM.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </main>
         </>

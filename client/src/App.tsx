@@ -28,7 +28,6 @@ function App() {
       <AxiosJWT />
       <ToastContainer />
       <div className={styles.wrapper}>
-        <Header />
         {!pathnames ? 
           <Navbar>
             <Routes>
@@ -61,7 +60,6 @@ function App() {
           </Routes>
         }
       </div>
-      {location.pathname.startsWith('/admin-panel') ? null : <Footer />}
     </>
   );
 }

@@ -2,7 +2,6 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import styles from './index.module.scss'
 import logo from 'assets/images/Logo54.png'
 import { Fs18Fw400, Fs18Fw400Black } from 'components/typography'
-import { ButtonPrimary, ButtonSecondary } from 'ui/buttons'
 
 export const Footer = () => {
     return (

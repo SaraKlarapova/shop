@@ -10,7 +10,7 @@
     transition: all var(--speed-regularTransition);
 
     &:active {
-        transform: translateY(2px);
+        transform: translateY(1px);
     }
 }
 
@@ -28,24 +28,12 @@
     }
 }
 
-.buttonPrimary {
-    background: var(--orange50);
-    color: var(--white);
-    border-radius: 10px;
-    padding: 18px 20px;
-    font-size: var(--fs-18);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-}
+.buttonStandart {
+    background: #1B1B1B;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 40px;
 
-.buttonSecondary {
-    color: var(--grey15);
-    padding: 18px 20px;
-    font-size: var(--fs-18);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
 }
 
 .buttonGradient {

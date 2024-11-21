@@ -105,21 +105,19 @@
 
 .InputLight {
     label {
-        font-size: var(--fs-18);
+        font-size: var(--fs-14);
         font-weight: 500;
-        color: var(--grey15);
     }
 
     input {
-        height: 27px;
-        padding: 24px 16px;
-        background: var(--white99);
-        border: 1px solid var(--white95);
-        border-radius: 10px;
-        font-size: var(--fs-18);
-        font-weight: 300;
-        color: var(--grey40);
-        margin: 4px 0px;
+        height: 32px;
+        padding: 6px 12px;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(223, 225, 228);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: rgb(40, 42, 48);
+        margin: 0px;
         appearance: none;
         transition: border var(--speed-highlightFadeOut);
 
@@ -131,10 +129,8 @@
 
         &:focus {
             box-shadow: none;
-            border-color: var(--orange50);
+            border-color: rgb(33, 97, 220);
         }
-
-        caret-color: var(--orange50);
     }
 
     input:-webkit-autofill,
