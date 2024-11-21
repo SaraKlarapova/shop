@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
-import { faChevronLeft, faPenRuler, faDisplay, faMagnifyingGlassChart, IconDefinition, faHouse, faGears, faChartBar, faList } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faPenRuler, faDisplay, faMagnifyingGlassChart, IconDefinition, faHouse, faGears, faChartBar, faList, faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { ChevronLeftIcon, DashboardIcon, GearIcon, VercelLogoIcon } from '@radix-ui/react-icons'
@@ -25,7 +25,7 @@ interface NAVSections {
 const navigation: NAVSections[] = [
     {
         title: 'Информация',
-        icon: faHouse,
+        icon: faInfo,
         navigation: [
             { title: 'Главная', link: '/' },
             { title: 'Контакты', link: '/contacts' },
