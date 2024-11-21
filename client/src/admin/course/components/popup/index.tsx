@@ -117,6 +117,7 @@ export const PopUpCourse = ({ isVisible, setIsVisible }: Props) => {
                 minutes: isVisible.data.minutes,
                 linkTelegram: isVisible.data.linkTelegram,
                 linkVk: isVisible.data.linkVk,
+                price: isVisible.data.price,
             })
 
             setSavedOptions(isVisible.data.CourseTestRelation.map(el => ({

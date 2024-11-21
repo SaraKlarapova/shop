@@ -48,6 +48,22 @@ export class CourseController {
             linkVideo = await this.s3.uploadFile(fileVideo);
         }
 
+        if (id) {
+            await this.prisma.logs.create({
+                data: {
+                    type: 'EDIT',
+                    courseId: Number(id)
+                }
+            })
+        } else {
+            await this.prisma.logs.create({
+                data: {
+                    type: 'ADD',
+                    courseId: Number(id)
+                }
+            })
+        }
+
         const createdCourse = await this.prisma.course.upsert({
             where: {
                 id: Number(id) || -1
