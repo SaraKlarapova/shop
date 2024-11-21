@@ -282,4 +282,22 @@ export class UsersController {
             }
         })
     }
+
+    @Get('get-logs')
+    async getLogs() {
+        return await this.prisma.logs.findMany({
+            take: 10,
+            orderBy: {
+                createdAt: 'desc'
+            },
+            include: {
+                Course: {
+                    select: {
+                        id: true,
+                        headline: true
+                    }
+                }
+            }
+        })
+    }
 }

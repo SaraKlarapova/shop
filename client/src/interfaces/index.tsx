@@ -128,3 +128,11 @@ export interface IPassTest {
 export interface IPassTestResult {
     score: number
 }
+
+export interface ILogs {
+    id: number
+    createdAt: Date
+    type: "ADD" | "EDIT"
+    courseId: number
+    Course: ICourse
+}

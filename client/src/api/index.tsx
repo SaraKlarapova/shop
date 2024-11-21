@@ -1,5 +1,5 @@
 import { api } from 'services/api';
-import { ICourse, ICreateCourse, ICreateMember, ICreateTest, IGetCourseById, IPassTest, IPassTestResult, IRegisterForm, ISignInForm, ISignRes, ITest } from 'interfaces';
+import { ICourse, ICreateCourse, ICreateMember, ICreateTest, IGetCourseById, ILogs, IPassTest, IPassTestResult, IRegisterForm, ISignInForm, ISignRes, ITest } from 'interfaces';
 
 export const signUp = async (data: IRegisterForm): Promise<ISignRes> => {
     let response = await api.post('auth/signup', data);
@@ -104,5 +104,10 @@ export const getCountOfMembers = async (id: number): Promise<number> => {
 
 export const getUsername = async (): Promise<{ name: string }> => {
     let response = await api.get(`users/get-username`);
+    return response.data;
+}
+
+export const getLogs = async (): Promise<ILogs[]> => {
+    let response = await api.get(`users/get-logs`);
     return response.data;
 }

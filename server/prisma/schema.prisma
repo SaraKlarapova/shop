@@ -41,6 +41,7 @@ model Course {
     Users              Users                @relation(fields: [userId], references: [id])
     CourseTestRelation CourseTestRelation[]
     MembersOfCourse    MembersOfCourse[]
+    Logs               Logs[]
 }
 
 model CourseTestRelation {
@@ -99,7 +100,20 @@ model TestResults {
     User      Users    @relation(fields: [userId], references: [id])
 }
 
+model Logs {
+    id        Int         @id @default(autoincrement())
+    createdAt DateTime    @default(now())
+    type      TypesOfLogs
+    courseId  Int
+    Course    Course      @relation(fields: [courseId], references: [id])
+}
+
 enum Roles {
     USER
     ADMIN
+}
+
+enum TypesOfLogs {
+    ADD
+    EDIT
 }
