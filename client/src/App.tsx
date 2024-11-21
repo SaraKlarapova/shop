@@ -5,7 +5,7 @@ import { RequireAuth } from 'utils/requireAuth';
 import { RequireRole } from 'utils/requireRole';
 import { AxiosJWT } from "services/axiosJWT";
 import { ToastContainer } from "react-toastify";
-import { MainScreen } from "admin/main";
+import { MainScreen } from "pages/main-page";
 import { AdminPanel } from "admin";
 import { Dashboard } from "pages/dashboard";
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,8 @@ import styles from './index.module.scss'
 import { Course } from "pages/dashboard/course";
 import { Header } from "components/header";
 import { Footer } from "components/footer";
+import { Contacts } from "pages/contacts";
+import { About } from "pages/about";
 
 function App() {
 
@@ -32,8 +34,11 @@ function App() {
           <Navbar>
             <Routes>
               {/* <Route path={"/"} element={<Redirect />}></Route> */}
+              <Route path={"/"} element={<MainScreen />} />
               <Route path={"/auth/*"} element={<Main />} />
-              <Route path='/' element={<AllCourses />} />
+              <Route path='/courses' element={<AllCourses />} />
+              <Route path='/contacts' element={<Contacts />} />
+              <Route path='/about' element={<About />} />
               <Route path='/course/:id/*' element={<Course />}></Route>
               <Route element={<RequireAuth />}>
                 <Route path={"/panel/*"} element={<Dashboard />} /> 
@@ -47,8 +52,11 @@ function App() {
         :
           <Routes>
           {/* <Route path={"/"} element={<Redirect />}></Route> */}
+            <Route path={"/"} element={<MainScreen />} />
             <Route path={"/auth/*"} element={<Main />} />
-            <Route path='/' element={<AllCourses />} />
+            <Route path='/courses' element={<AllCourses />} />
+            <Route path='/contacts' element={<Contacts />} />
+            <Route path='/about' element={<About />} />
             <Route path='/course/:id/*' element={<Course />} />
             <Route element={<RequireAuth />}>
               <Route path={"/panel/*"} element={<Dashboard />} /> 
