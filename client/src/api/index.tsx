@@ -111,3 +111,8 @@ export const getLogs = async (): Promise<ILogs[]> => {
     let response = await api.get(`users/get-logs`);
     return response.data;
 }
+
+// export const deleteTest = async (data: {id: number}): Promise<boolean> => {
+//     let response = await api.post('tests/delete', data);
+//     return response.data;
+// }

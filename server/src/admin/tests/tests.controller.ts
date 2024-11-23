@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { PrismaService } from 'prisma/prisma.service';
-import { CreateTest } from './dto';
+import { CreateTest, DeleteTest } from './dto';
 
 @Controller('tests')
 export class TestsController {
@@ -79,4 +79,35 @@ export class TestsController {
             }
         }
     }
+
+    // @Post('delete')
+    // async DeleteTest(@Body() { id }: DeleteTest) {
+
+    //     const foundQuestions = await this.prisma.questions.findMany({
+    //         where: {
+    //             testId: id
+    //         }
+    //     })
+        
+    //     for (const foundQuestion of foundQuestions) {
+    //         await this.prisma.answerOptions.deleteMany({
+    //             where: {
+    //                 questionId: foundQuestion.id
+    //             }
+    //         })
+    //     }
+
+    //     await this.prisma.questions.deleteMany({
+    //         where: {
+    //             testId: id
+    //         }
+    //     })
+
+    //     await this.prisma.test.delete({
+    //         where: {
+    //             id
+    //         }
+    //     })
+
+    // }
 }

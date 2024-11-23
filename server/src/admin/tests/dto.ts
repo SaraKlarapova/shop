@@ -24,3 +24,8 @@ export class CreateTest {
     @IsNotEmpty()
     questions: Questions[]
 }
+
+export class DeleteTest {
+    @IsNotEmpty()
+    id: number
+}

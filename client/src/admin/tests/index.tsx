@@ -147,6 +147,21 @@ export const CreateTest = () => {
         }
     }, [])
 
+    // const deleteTest_ = useMutation({
+    //     mutationFn: deleteTest,
+    //     onSuccess: (data) => {
+    //         toast.success("Deleted")
+    //     },
+    //     onError: (error: any) => {
+    //         console.log(error)
+    //     }
+    // })
+
+    // const handleDelete = () => {
+    //     if (!state) return
+    //     deleteTest_.mutate({ id: state.id })
+    // };
+
     return (
         <>
             <div className={styles.header}>
@@ -155,6 +170,7 @@ export const CreateTest = () => {
 
                 <ButtonIndigo onClick={addQuestion}>Добавить вопрос</ButtonIndigo>
                 <ButtonIndigo className={styles.submit} onClick={handleSubmit(onSubmit)} isLoading={createTest_.isLoading}>Сохранить</ButtonIndigo>
+                {/* <ButtonIndigo className={styles.submit} onClick={handleDelete} isLoading={deleteTest_.isLoading}>Delete</ButtonIndigo> */}
             </div>
 
             <div className={styles.body}>
