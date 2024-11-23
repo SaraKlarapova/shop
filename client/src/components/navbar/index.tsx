@@ -21,6 +21,7 @@ interface NAVSections {
     title: string,
     icon: IconDefinition,
     navigation: NAV[]
+    navigationJwt?: NAV[]
 }
 const navigation: NAVSections[] = [
     {
@@ -37,20 +38,13 @@ const navigation: NAVSections[] = [
         icon: faBook,
         navigation: [
             { title: 'Курсы', link: '/courses' },
-        ]
-    },
-];
-
-const navigationJwt: NAVSections[] = [
-    {
-        title: 'Пройденные материалы',
-        icon: faBook,
-        navigation: [
+        ],
+        navigationJwt: [
             { title: 'Пройденные курсы', link: '/panel/passed-courses' },
             { title: "Проверить подлинность курса", link: '/panel/verify-certificate' }
         ]
-    }
-]
+    },
+];
 
 export const Navbar = ({ children }: Props) => {
 
@@ -91,32 +85,21 @@ export const Navbar = ({ children }: Props) => {
                                     </NavLink>
                                 </div>
                             ))}
-                        </div>
-                    ))}
-                    {jwt &&
-                        <>
-                            {navigationJwt.map(el => (
-                                <div key={el.title} className={styles.list}>
-                                    <div className={styles.hero}>
-                                        <FontAwesomeIcon icon={el.icon} size="sm" style={{ color: "#9fa8b7", }} className={styles.icon} />
-                                        <span className={styles.title}>{el.title}</span>
-                                    </div>
-                                    {el.navigation.map(navElement => (
-                                        <div className={styles.item} onClick={() => setChosenCategory(navElement.title)} data-isсhosen={chosenCategory === navElement.title} key={navElement.link}>
-                                            <NavLink to={navElement.link} className={styles.group} >
-                                                <span className={styles.text}>{navElement.title}</span>
-                                            </NavLink>
-                                        </div>
-                                    ))}
+                            {jwt && el.navigationJwt && el.navigationJwt.map(navElement => (
+                                <div className={styles.item} onClick={() => setChosenCategory(navElement.title)} data-isсhosen={chosenCategory === navElement.title} key={navElement.link}>
+                                    <NavLink to={navElement.link} className={styles.group} >
+                                        <span className={styles.text}>{navElement.title}</span>
+                                    </NavLink>
                                 </div>
                             ))}
-                            <Link to="/" className={styles.exit} onClick={handleSignOut}>
-                                <img src={DoorExit} />
-                                <span className={styles.text}>Выйти</span>
-                            </Link>
-                        </>
-                    }
-                    {!jwt && 
+                        </div>
+                    ))}
+                    {jwt ?
+                        <Link to="/" className={styles.exit} onClick={handleSignOut}>
+                            <img src={DoorExit} />
+                            <span className={styles.text}>Выйти</span>
+                        </Link>
+                    : 
                         <Link to="/auth" className={styles.exit} onClick={() => navigate('/auth')}>
                             <img src={DoorExit} />
                             <span className={styles.text}>Войти</span>
