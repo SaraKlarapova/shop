@@ -60,7 +60,7 @@ export const MainScreen = () => {
             }}
         >
             {marqueeItems?.map((el, index) => (
-                <div key={index}>{el.type === 'ADD' ? 'Добавлен курс' : 'Изменен курс'} <Link to={`course/${el.Course.id}`}>{el.Course.headline}</Link></div>
+                <div key={index}>{el.type === 'ADD' ? 'Добавлен курс' : 'Изменен курс'} <Link style={{ textDecoration: 'underline' }} to={`course/${el.Course.id}`}>{el.Course.headline}</Link></div>
             ))}
         </div>
         <div className={styles.wrap}>
