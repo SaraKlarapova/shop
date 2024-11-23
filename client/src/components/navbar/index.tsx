@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
-import { faChevronLeft, faPenRuler, faDisplay, faMagnifyingGlassChart, IconDefinition, faHouse, faGears, faChartBar, faList, faInfo } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faPenRuler, faDisplay, faMagnifyingGlassChart, IconDefinition, faHouse, faGears, faChartBar, faList, faInfo, faBook } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { ChevronLeftIcon, DashboardIcon, GearIcon, VercelLogoIcon } from '@radix-ui/react-icons'
@@ -34,7 +34,7 @@ const navigation: NAVSections[] = [
     },
     {
         title: 'Материалы',
-        icon: faHouse,
+        icon: faBook,
         navigation: [
             { title: 'Курсы', link: '/courses' },
         ]
@@ -44,7 +44,7 @@ const navigation: NAVSections[] = [
 const navigationJwt: NAVSections[] = [
     {
         title: 'Пройденные материалы',
-        icon: faHouse,
+        icon: faBook,
         navigation: [
             { title: 'Пройденные курсы', link: '/panel/passed-courses' },
             { title: "Проверить подлинность курса", link: '/panel/verify-certificate' }

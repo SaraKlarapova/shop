@@ -5,6 +5,7 @@ import { getLogs } from 'api'
 import { getNormalDate } from 'utils/normalDate'
 import { Link } from 'react-router-dom'
 import Marquee from "react-fast-marquee"
+import { Fs18Fw400Black, Fs38Fw600Black, H1SemiboldFs38 } from 'components/typography'
 
 export const MainScreen = () => {
 
@@ -34,7 +35,7 @@ export const MainScreen = () => {
     const marqueeItems = data && [...data, ...data]
 
     return (
-        
+        <>
         <div
             className={styles.marquee}
             ref={marqueeRef}
@@ -46,5 +47,25 @@ export const MainScreen = () => {
                 <div key={index}>{el.type === 'ADD' ? 'Добавлен курс' : 'Изменен курс'} <Link to={`course/${el.Course.id}`}>{el.Course.headline}</Link></div>
             ))}
         </div>
+        <div className={styles.wrap}>
+            <div className={styles.content}>
+                <H1SemiboldFs38>День рождения организации:</H1SemiboldFs38>
+                <Fs18Fw400Black.p>12.12.2022</Fs18Fw400Black.p>
+            </div>
+            <div className={styles.content}>
+                <H1SemiboldFs38>Cоздание сайта:</H1SemiboldFs38>
+                <Fs18Fw400Black.p>Придумали темку</Fs18Fw400Black.p>
+                <Fs18Fw400Black.p>Написали дизайн</Fs18Fw400Black.p>
+                <Fs18Fw400Black.p>жоско сверстали</Fs18Fw400Black.p>
+                <Fs18Fw400Black.p>ну и все ура!</Fs18Fw400Black.p>
+            </div>
+            <div className={styles.content}>
+                <H1SemiboldFs38>Праздники организации:</H1SemiboldFs38>
+                <Fs18Fw400Black.p>Мы отмечаем новый год</Fs18Fw400Black.p>
+                <Fs18Fw400Black.p>и 9 мая</Fs18Fw400Black.p>
+                <Fs18Fw400Black.p>и 8 марта девчульки любимые ура</Fs18Fw400Black.p>
+            </div>
+        </div>
+        </>
     )
 }
