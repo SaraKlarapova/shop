@@ -40,7 +40,7 @@ export const ContentCourse = () => {
                             <Fs20Fw500Black.h3>Тесты, которые нужно пройти для получения сертификата:</Fs20Fw500Black.h3>
                             <div className={styles.tests}>
                                 {data?.course.CourseTestRelation.map(el => (
-                                    <Link className={styles.test} to={`/test/${el.testId}`}>
+                                    <Link className={styles.test} to={`/panel/test/${el.testId}`}>
                                         <Fs16Fw400Black.span>{el.Test.headline}</Fs16Fw400Black.span>
                                     </Link>
                                 ))}
