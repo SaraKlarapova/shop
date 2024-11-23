@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { createTest, deleteTest } from 'api';
+import { createTest } from 'api';
 import { toast } from 'react-toastify';
 import { ButtonIndigo } from 'ui/buttons';
 import { deepCopyArray } from 'utils/deepcopy';
