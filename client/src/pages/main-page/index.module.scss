@@ -1,0 +1,23 @@
+.marquee {
+    display: flex;
+    animation: marquee linear infinite;
+    white-space: nowrap;
+    width: 100%;
+    gap: 24px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%); // Adjust based on duplication
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        animation: none;
+    }
+}

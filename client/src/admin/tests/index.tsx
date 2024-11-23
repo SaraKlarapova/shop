@@ -12,7 +12,7 @@ import { ButtonIndigo } from 'ui/buttons';
 import { deepCopyArray } from 'utils/deepcopy';
 import { InputLight } from 'ui/inputs/input';
 import { trashCan } from 'assets/icons';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const validationSchema = z.object({
     headline: z.string().min(1, "Заполните заголовок"),
@@ -26,6 +26,8 @@ interface IState {
 }
 
 export const CreateTest = () => {
+
+    const navigate = useNavigate()
 
     const { state }: IState = useLocation();
 
@@ -48,6 +50,7 @@ export const CreateTest = () => {
         mutationFn: createTest,
         onSuccess: (data) => {
             toast.success("Поле формы добавлено")
+            navigate("/admin-panel/tests")
         },
         onError: (error: any) => {
             console.log(error)

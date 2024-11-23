@@ -20,16 +20,6 @@ export const Course = () => {
 
     const jwt = useJwtStore(state => state.role)
 
-    // const { data, isLoading } = useQuery({
-    //     queryFn: () => getCourseById(Number(id)),
-    //     queryKey: ['client-get-course', id],
-    //     keepPreviousData: true
-    // })
-    // const shareText = `Посмотрите эту новость на Shell: ${dataNews?.title}`;
-    // const shareUrl = `https://shell.in.ua/shell-inside/inside-page/${id}`;
-    // const shareImage = dataNews?.preview || '';
-    // const maxDescriptionLength = 150; // Максимальная длина описания
-
     return (
         <>
             <ScrollToTop />
