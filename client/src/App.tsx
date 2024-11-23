@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Main } from './pages/Main';
-import { useJwtStore } from 'stores/jwt';
 import { RequireAuth } from 'utils/requireAuth';
 import { RequireRole } from 'utils/requireRole';
 import { AxiosJWT } from "services/axiosJWT";
@@ -9,13 +8,10 @@ import { MainScreen } from "pages/main-page";
 import { AdminPanel } from "admin";
 import { Dashboard } from "pages/dashboard";
 import 'react-toastify/dist/ReactToastify.css';
-import { Redirect } from "components/redirect";
 import { AllCourses } from "pages/dashboard/all-courses";
 import { Navbar } from "components/navbar";
 import styles from './index.module.scss'
 import { Course } from "pages/dashboard/course";
-import { Header } from "components/header";
-import { Footer } from "components/footer";
 import { Contacts } from "pages/contacts";
 import { About } from "pages/about";
 import { Helmet } from 'react-helmet';
