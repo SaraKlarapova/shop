@@ -5,6 +5,7 @@ import { SignUp } from "./signup";
 import { SignIn } from "./signin";
 import { useJwtStore } from "stores/jwt";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 export const Main = () => {
 
@@ -21,6 +22,21 @@ export const Main = () => {
 
     return (
         <>
+        <Helmet>
+          <title>SkillSync</title>
+          <meta name="description" content="SkillSync - платформа обучения" />
+          <meta name="keywords" content="SkillSync, обучение, Skill Sync, платформа, платформа обучения, программирование" />
+
+          <meta property="og:title" content="SkillSync - платформа обучения" />
+          <meta property="og:description" content="SkillSync - это платформа для обучения программированию" />
+          <meta property="og:image" content="https://n-shop.storage.yandexcloud.net/n-shop/1732381367478" />
+          <meta property="og:url" content="http://localhost:3001" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="SkillSync" />
+          <meta name="twitter:description" content="SkillSync - это платформа для обучения программированию" />
+          <meta name="twitter:image" content="https://n-shop.storage.yandexcloud.net/n-shop/1732381367478" />
+        </Helmet>
             <main className={styles.wrapper}>
                 <div className={styles.leftBlock}>
                     <div className={styles.logo}>SkillSync</div>

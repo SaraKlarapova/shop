@@ -27,21 +27,6 @@ function App() {
       <AxiosJWT />
       <ToastContainer />
       <div className={styles.wrapper}>
-        <Helmet>
-          <title>SkillSync</title>
-          <meta name="description" content="SkillSync - платформа обучения" />
-          <meta name="keywords" content="SkillSync, обучение, Skill Sync, платформа, платформа обучения, программирование" />
-
-          <meta property="og:title" content="SkillSync - платформа обучения" />
-          <meta property="og:description" content="SkillSync - это платформа для обучения программированию" />
-          <meta property="og:image" content="https://n-shop.storage.yandexcloud.net/n-shop/1732351488633" />
-          <meta property="og:url" content="http://localhost:3001" />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="SkillSync" />
-          <meta name="twitter:description" content="SkillSync - это платформа для обучения программированию" />
-          <meta name="twitter:image" content="https://n-shop.storage.yandexcloud.net/n-shop/1732351488633" />
-        </Helmet>
         {!pathnames ? 
           <Navbar>
             <Routes>
